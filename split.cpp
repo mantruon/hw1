@@ -24,7 +24,7 @@ void split(Node*& in, Node*& odds, Node*& evens)
   if (*in->value%2 != 0) {
     // determines if odd
     *odds->value = *in->value;
-    split()
+    split(in->next, odds->next, evens);
   }
   if (in == NULL) {
     // do nothing?
