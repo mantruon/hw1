@@ -18,18 +18,27 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   if (in->value%2 == 0) {
     // determines if even
+    // we want to create a new node and insert it into the list
+    Node* newEven = new Node;
+    evens = newEven;
     evens->value = in->value;
+    evens->next = nullptr;
     split(in->next, odds, evens->next);
   }
-  if (in->value%2 != 0) {
+  else if (in->value%2 != 0) {
     // determines if odd
+    // we want to create a new node and insert it into the list
     odds->value = in->value;
+    Node* newOdd = new Node;
+    odds = newOdd;
+    odds->value = in->value;
+    odds->next = nullptr;
     split(in->next, odds->next, evens);
   }
-  if (in == NULL) {
-    // do nothing?
-    // will stop recursive function
-  }
+  // if (in == nullptr) {
+  //   // do nothing?
+  //   // will stop recursive function
+  // }
 // WRITE YOUR CODE HERE
 }
 
