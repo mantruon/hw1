@@ -14,25 +14,41 @@ the function below should be the only one in this file.
 
 /* Add a prototype for a helper function here if you need */
 
+/* Hint: by far the easiest way to make this work is to not delete or new nodes, but just to change the pointers. */
+
 void split(Node*& in, Node*& odds, Node*& evens)
 {
   if (in->value%2 == 0) {
     // determines if even
-    // we want to create a new node and insert it into the list
-    Node* newEven = new Node;
-    evens = newEven;
+    // trying a different approach using the hint from codio
+    evens = in;
     evens->value = in->value;
     evens->next = nullptr;
+
+    // we want to create a new node and insert it into the list
+
+    // Node* newEven = new Node;
+    // evens = newEven;
+    // evens->value = in->value;
+    // evens->next = nullptr;
+
     split(in->next, odds, evens->next);
   }
   else if (in->value%2 != 0) {
     // determines if odd
-    // we want to create a new node and insert it into the list
-    odds->value = in->value;
-    Node* newOdd = new Node;
-    odds = newOdd;
+    // trying approach from codio hint
+    odds = in;
     odds->value = in->value;
     odds->next = nullptr;
+
+    // we want to create a new node and insert it into the list
+
+    // odds->value = in->value;
+    // Node* newOdd = new Node;
+    // odds = newOdd;
+    // odds->value = in->value;
+    // odds->next = nullptr;
+
     split(in->next, odds->next, evens);
   }
   // if (in == nullptr) {
