@@ -16,14 +16,14 @@ the function below should be the only one in this file.
 
 void split(Node*& in, Node*& odds, Node*& evens)
 {
-  if (*in->value%2 == 0) {
+  if (in->value%2 == 0) {
     // determines if even
-    *evens->value = *in->value;
+    evens->value = in->value;
     split(in->next, odds, evens->next);
   }
-  if (*in->value%2 != 0) {
+  if (in->value%2 != 0) {
     // determines if odd
-    *odds->value = *in->value;
+    odds->value = in->value;
     split(in->next, odds->next, evens);
   }
   if (in == NULL) {
