@@ -13,5 +13,35 @@ g++ split.cpp test_split.cpp -o test_split
 
 int main(int argc, char* argv[])
 {
-	
+	Node* splitThis = new Node(0, nullptr);
+	// want to create a list from 0-10
+	for (int i=0; i < 10; i++) {
+		Node* nextItem = new Node(i, nullptr);
+		splitThis->value = nextItem;
+		splitThis = nextItem;
+	}
+	Node* intoOdds = new Node;
+	Node* intoEvens = new Node;
+
+	split(splitThis, intoOdds, intoEvens);
+
+	//deallocate memory
+	while (splitThis != nullptr) {
+		Node* deleteNext = splitThis->next;
+		delete splitThis;
+		splitThis = deleteNext;
+	}
+	while (intoOdds != nullptr) {
+		cout << "This is odd: " << intoOdds->value << endl;
+		Node* deleteOdds = intoOdds->next;
+		delete intoOdds;
+		intoOdds = deleteOdds;
+	}
+	while (intoEvens != nullptr) {
+		cout << "This is even: " << intoEvens->value << endl;
+		Node* deleteEvens = intoEvens->next;
+		delete intoEvens;
+		intoEvens = deleteEvens;
+	}
+
 }
