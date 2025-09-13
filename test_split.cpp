@@ -10,18 +10,20 @@ g++ split.cpp test_split.cpp -o test_split
 */
 
 #include "split.h"
+#include "iostream"
+using namespace std;
 
 int main(int argc, char* argv[])
 {
-	Node* splitThis = new Node(0, nullptr);
+	Node* splitThis = nullptr;
 	// want to create a list from 0-10
 	for (int i=0; i < 10; i++) {
 		Node* nextItem = new Node(i, nullptr);
-		splitThis->value = nextItem;
+		splitThis->value = nextItem->value;
 		splitThis = nextItem;
 	}
-	Node* intoOdds = new Node;
-	Node* intoEvens = new Node;
+	Node* intoOdds = nullptr;
+	Node* intoEvens =nullptr;
 
 	split(splitThis, intoOdds, intoEvens);
 
