@@ -16,34 +16,40 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	Node* splitThis = nullptr;
+	Node* splitNext = splitThis;
 	// want to create a list from 0-10
 	for (int i=0; i < 10; i++) {
 		Node* nextItem = new Node(i, nullptr);
-		splitThis->value = nextItem->value;
-		splitThis = nextItem;
+		splitNext->next = nextItem;
+		splitNext = nextItem;
+		cout << "splitThis value: " << splitThis->value << " at index " << i << "." << endl;
+		cout << "splitThis current address: " << (void*)splitThis << endl;
+		cout << "splitThis next address: " << (void*)splitThis->next << endl;
+
 	}
 	Node* intoOdds = nullptr;
 	Node* intoEvens =nullptr;
 
-	split(splitThis, intoOdds, intoEvens);
+	// split(splitThis, intoOdds, intoEvens);
 
-	//deallocate memory
-	while (splitThis != nullptr) {
-		Node* deleteNext = splitThis->next;
-		delete splitThis;
-		splitThis = deleteNext;
-	}
-	while (intoOdds != nullptr) {
-		cout << "This is odd: " << intoOdds->value << endl;
-		Node* deleteOdds = intoOdds->next;
-		delete intoOdds;
-		intoOdds = deleteOdds;
-	}
-	while (intoEvens != nullptr) {
-		cout << "This is even: " << intoEvens->value << endl;
-		Node* deleteEvens = intoEvens->next;
-		delete intoEvens;
-		intoEvens = deleteEvens;
-	}
+	// //deallocate memory
+	// while (splitThis != nullptr) {
+	// 	cout << "This is empty list: " << splitThis->value << endl;
+	// 	Node* deleteNext = splitThis->next;
+	// 	delete splitThis;
+	// 	splitThis = deleteNext;
+	// }
+	// while (intoOdds != nullptr) {
+	// 	cout << "This is odd: " << intoOdds->value << endl;
+	// 	Node* deleteOdds = intoOdds->next;
+	// 	delete intoOdds;
+	// 	intoOdds = deleteOdds;
+	// }
+	// while (intoEvens != nullptr) {
+	// 	cout << "This is even: " << intoEvens->value << endl;
+	// 	Node* deleteEvens = intoEvens->next;
+	// 	delete intoEvens;
+	// 	intoEvens = deleteEvens;
+	// }
 
 }
