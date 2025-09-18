@@ -16,14 +16,15 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	Node* splitThis = nullptr;
-	// Node* splitNext = new Node(0, nullptr);
-	// Node* nextNext = new Node(1, nullptr);
-	// Node* nextNextNext = new Node(2, nullptr);
-	// splitNext->next = nextNext;
-	// splitNext->next->next = nextNextNext;
-	// splitThis = splitNext;
+	Node* splitNext = new Node(0, nullptr);
+	Node* nextNext = new Node(1, nullptr);
+	Node* nextNextNext = new Node(2, nullptr);
+	splitNext->next = nextNext;
+	splitNext->next->next = nextNextNext;
+	splitThis = splitNext;
 
 	// want to create a list from 0-10
+	// i tried this code below for testing but i couldn't figure out how it worked without seg faults
 	// for (int i=0; i < 10; i++) {
 	// 	Node* nextItem = new Node(i, nullptr);
 	// 	splitNext->next = nextItem;
@@ -36,13 +37,14 @@ int main(int argc, char* argv[])
 
 	Node* intoOdds = nullptr;
 	Node* intoEvens = nullptr;
-	// cout << "Address for first " << (void*)splitThis << endl;
-	// cout << "Value for first " << splitThis->value << endl;
-	// cout << "Address for next " << (void*)splitThis->next << endl; 
-	// cout << "Value for next " << splitThis->next->value << endl;
+	cout << "Address for first " << (void*)splitThis << endl;
+	cout << "Value for first " << splitThis->value << endl;
+	cout << "Address for next " << (void*)splitThis->next << endl; 
+	cout << "Value for next " << splitThis->next->value << endl;
 	split(splitThis, intoOdds, intoEvens);
 
 	//deallocate memory
+	// this loop below is to test if we had any issues parsing the input
 	while (splitThis != nullptr) {
 		cout << "This is empty list: " << splitThis->value << endl;
 		Node* deleteNext = splitThis->next;

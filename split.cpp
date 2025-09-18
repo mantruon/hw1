@@ -12,7 +12,7 @@ the function below should be the only one in this file.
 
 #include "split.h"
 // include below was used for testing
-#include "iostream"
+// #include "iostream"
 
 /* Add a prototype for a helper function here if you need */
 
@@ -22,7 +22,7 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   // code for base case empty list for input
   if (in == nullptr) {
-    std::cout << "In is now empty" << std::endl;
+    // std::cout << "In is now empty" << std::endl;
     return;
   }
   // code for testing below:
