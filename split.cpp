@@ -25,14 +25,10 @@ void split(Node*& in, Node*& odds, Node*& evens)
     evens->value = in->value;
     evens->next = nullptr;
 
-    // we want to create a new node and insert it into the list
-
-    // Node* newEven = new Node;
-    // evens = newEven;
-    // evens->value = in->value;
-    // evens->next = nullptr;
-
+    in->next = evens;
     split(in->next, odds, evens->next);
+    in->next = evens;
+    in = nullptr;
   }
   else if (in->value%2 != 0) {
     // determines if odd
@@ -41,15 +37,9 @@ void split(Node*& in, Node*& odds, Node*& evens)
     odds->value = in->value;
     odds->next = nullptr;
 
-    // we want to create a new node and insert it into the list
-
-    // odds->value = in->value;
-    // Node* newOdd = new Node;
-    // odds = newOdd;
-    // odds->value = in->value;
-    // odds->next = nullptr;
-
     split(in->next, odds->next, evens);
+    in->next = odds;
+    in = nullptr;
   }
   // if (in == nullptr) {
   //   // do nothing?

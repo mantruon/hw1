@@ -16,7 +16,7 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	Node* splitThis = nullptr;
-	Node* splitNext = splitThis;
+	Node* splitNext = new Node();
 	// want to create a list from 0-10
 	for (int i=0; i < 10; i++) {
 		Node* nextItem = new Node(i, nullptr);

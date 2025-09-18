@@ -1,4 +1,4 @@
-#include <cstddef>
+valgrind --tool=memcheck --leak-check=yes ./test_split#include <cstddef>
 #include <stdexcept>
 #include "ulliststr.h"
 
