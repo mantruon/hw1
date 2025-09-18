@@ -42,24 +42,24 @@ int main(int argc, char* argv[])
 	cout << "Value for next " << splitThis->next->value << endl;
 	split(splitThis, intoOdds, intoEvens);
 
-	// //deallocate memory
-	// while (splitThis != nullptr) {
-	// 	cout << "This is empty list: " << splitThis->value << endl;
-	// 	Node* deleteNext = splitThis->next;
-	// 	delete splitThis;
-	// 	splitThis = deleteNext;
-	// }
-	// while (intoOdds != nullptr) {
-	// 	cout << "This is odd: " << intoOdds->value << endl;
-	// 	Node* deleteOdds = intoOdds->next;
-	// 	delete intoOdds;
-	// 	intoOdds = deleteOdds;
-	// }
-	// while (intoEvens != nullptr) {
-	// 	cout << "This is even: " << intoEvens->value << endl;
-	// 	Node* deleteEvens = intoEvens->next;
-	// 	delete intoEvens;
-	// 	intoEvens = deleteEvens;
-	// }
+	//deallocate memory
+	while (splitThis != nullptr) {
+		cout << "This is empty list: " << splitThis->value << endl;
+		Node* deleteNext = splitThis->next;
+		delete splitThis;
+		splitThis = deleteNext;
+	}
+	while (intoOdds != nullptr) {
+		cout << "This is odd: " << intoOdds->value << endl;
+		Node* deleteOdds = intoOdds->next;
+		delete intoOdds;
+		intoOdds = deleteOdds;
+	}
+	while (intoEvens != nullptr) {
+		cout << "This is even: " << intoEvens->value << endl;
+		Node* deleteEvens = intoEvens->next;
+		delete intoEvens;
+		intoEvens = deleteEvens;
+	}
 
 }

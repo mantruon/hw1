@@ -12,7 +12,7 @@ the function below should be the only one in this file.
 
 #include "split.h"
 // include below was used for testing
-// #include "iostream"
+#include "iostream"
 
 /* Add a prototype for a helper function here if you need */
 
@@ -22,33 +22,33 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   // code for base case empty list for input
   if (in == nullptr) {
-    // std::cout << "in is now empty" << std::endl;
+    std::cout << "in is now empty" << std::endl;
     return;
   }
   // code for testing below:
-  // std::cout << "In value: " << in->value << std::endl;
-  // std::cout << "In->next addresss: " << (void*)in->next << std::endl;
+  std::cout << "In value: " << in->value << std::endl;
+  std::cout << "In->next addresss: " << (void*)in->next << std::endl;
   if (in != nullptr) {
     if (in->value%2 == 0) {
       // determines if even
       // trying a different approach using the hint from codio
-      // std::cout << "We found an even " << std::endl;
+      std::cout << "We found an even " << std::endl;
       evens = in;
-      // evens->value = in->value;
-      // std::cout << "Evens is " << evens->value << std::endl;
+      std::cout << "Evens is " << evens->value << std::endl;
       if (in->next != nullptr) {
         split(in->next, odds, evens->next);
+        in = nullptr;
       }
     }
     else if (in->value%2 != 0) {
       // determines if odd
       // trying approach from codio hint
-      // std::cout << "We found an odd " << std::endl;
+      std::cout << "We found an odd " << std::endl;
       odds = in;
-      // odds->value = in->value;
-      // std::cout << "Odds is " << odds->value << std::endl;
+      std::cout << "Odds is " << odds->value << std::endl;
       if (in->next != nullptr) {
        split(in->next, odds->next, evens);
+       in = nullptr;
       }
     }
 }
