@@ -16,21 +16,31 @@ using namespace std;
 int main(int argc, char* argv[])
 {
 	Node* splitThis = nullptr;
-	Node* splitNext = new Node();
+	Node* splitNext = new Node(0, nullptr);
+	Node* nextNext = new Node(1, nullptr);
+	Node* nextNextNext = new Node(2, nullptr);
+	splitNext->next = nextNext;
+	splitNext->next->next = nextNextNext;
+	splitThis = splitNext;
+
 	// want to create a list from 0-10
-	for (int i=0; i < 10; i++) {
-		Node* nextItem = new Node(i, nullptr);
-		splitNext->next = nextItem;
-		splitNext = nextItem;
-		cout << "splitThis value: " << splitThis->value << " at index " << i << "." << endl;
-		cout << "splitThis current address: " << (void*)splitThis << endl;
-		cout << "splitThis next address: " << (void*)splitThis->next << endl;
+	// for (int i=0; i < 10; i++) {
+	// 	Node* nextItem = new Node(i, nullptr);
+	// 	splitNext->next = nextItem;
+	// 	splitNext = nextItem;
+	// 	cout << "splitThis value: " << splitThis->value << " at index " << i << "." << endl;
+	// 	cout << "splitThis current address: " << (void*)splitThis << endl;
+	// 	cout << "splitThis next address: " << (void*)splitThis->next << endl;
 
-	}
+	// }
+
 	Node* intoOdds = nullptr;
-	Node* intoEvens =nullptr;
-
-	// split(splitThis, intoOdds, intoEvens);
+	Node* intoEvens = nullptr;
+	cout << "Address for first " << (void*)splitThis << endl;
+	cout << "Value for first " << splitThis->value << endl;
+	cout << "Address for next " << (void*)splitThis->next << endl; 
+	cout << "Value for next " << splitThis->next->value << endl;
+	split(splitThis, intoOdds, intoEvens);
 
 	// //deallocate memory
 	// while (splitThis != nullptr) {
