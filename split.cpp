@@ -27,8 +27,8 @@ void split(Node*& in, Node*& odds, Node*& evens)
 
     in->next = evens;
     split(in->next, odds, evens->next);
-    in->next = evens;
-    in = nullptr;
+    // in->next = evens;
+    // in = nullptr;
   }
   else if (in->value%2 != 0) {
     // determines if odd
@@ -38,8 +38,8 @@ void split(Node*& in, Node*& odds, Node*& evens)
     odds->next = nullptr;
 
     split(in->next, odds->next, evens);
-    in->next = odds;
-    in = nullptr;
+    // in->next = odds;
+    // in = nullptr;
   }
   // if (in == nullptr) {
   //   // do nothing?
